@@ -125,8 +125,7 @@ impl LetterTree {
 /// Get all possible words that can be represented as
 /// a path on the given 4x4 `grid`.
 ///
-/// # Panics
-/// The grid size is not 4x4.
+/// Panics if the grid size is not 4x4.
 ///
 /// Internally a BFS is performed, starting from each tile
 /// on the grid. The BFS is terminated early for a branch
