@@ -25,6 +25,9 @@ Additionally a `solve`-function is implemented. The solve function performs a BF
 the grid and returns all the words found. The `LetterTree` datatype allows the BFS to be terminated early for
 a branch that cannot produce a valid word.
 
+## Demo
+![](/demo.gif)
+
 ## Ideas for further development
 * Allow grids of artificial size
 * Implementation for languages other than Finnish.
