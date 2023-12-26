@@ -143,6 +143,7 @@ pub fn solve(grid: Vec<Vec<char>>) -> Vec<String> {
         .map(|c| (c, vec![c]))
         .collect::<VecDeque<_>>();
     let mut found = HashSet::new();
+    let mut found_vec = Vec::new();
 
     while let Some((pos, path)) = s.pop_front() {
         let word = path
@@ -152,8 +153,8 @@ pub fn solve(grid: Vec<Vec<char>>) -> Vec<String> {
 
         match WORDS.word_status(&word) {
             Status::Word => {
-                if word.len() > 2 {
-                    found.insert(word);
+                if word.len() > 2 && found.insert(word.clone()) {
+                    found_vec.push(word);
                 }
             }
             Status::Impossible => {
@@ -171,7 +172,5 @@ pub fn solve(grid: Vec<Vec<char>>) -> Vec<String> {
         });
     }
 
-    let mut found_vec = found.into_iter().collect::<Vec<_>>();
-    found_vec.sort_by_key(|w| w.chars().count());
     found_vec
 }
